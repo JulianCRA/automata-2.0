@@ -1,2 +1,1 @@
-# lets-start-again
-To new beginnigs!!
+# automata-2.0
