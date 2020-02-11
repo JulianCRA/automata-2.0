@@ -1,0 +1,50 @@
+{
+  "name": "automata",
+  "version": "2.0.0",
+  "description": "Collection of different automata algorithms",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot --config webpack.dev.js --host 0.0.0.0",
+    "build": "webpack --mode production --config webpack.prod.js",
+    "build:serve": "webpack --mode production --config webpack.prod.js && serve dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JulianCRA/automata-2.0.git"
+  },
+  "keywords": [
+    "new",
+    "again",
+    "boilerplate"
+  ],
+  "author": "Julian R.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JulianCRA/automata-2.0/issues"
+  },
+  "homepage": "https://github.com/JulianCRA/automata-2.0#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/plugin-syntax-class-properties": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "p5": "^0.10.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cdn-plugin": "^3.2.0",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
