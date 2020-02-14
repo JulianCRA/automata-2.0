@@ -39,19 +39,16 @@ const Automata = () => {
 	const moveContentTo = (p) => {
 		let l
 		if(p === pp){
-			console.log("SKETCH")
 			pp = 1
 			l = menuRef.current.getBoundingClientRect().width
 		}else if(p === 0){
-			console.log("MENU")
 			pp = 0
 			l = 0
 		}else if(p === 2){
-			console.log("CONFIG")
 			pp = 2
 			l = ac.current.getBoundingClientRect().width + menuRef.current.getBoundingClientRect().width
 		}
-		console.log(ac.current);
+		
 		ac.current.scrollTo({
 			left: l,
 			top:0,

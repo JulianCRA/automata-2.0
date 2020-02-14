@@ -24,6 +24,9 @@
 }
 
 .container.small > * {
+	background-color: #315297;
+	border-radius: 1vw;
+	color: #dddddd;
 	padding: 1vh;
 }
 
