@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import App from './js/App'
+import Automata from './js/Automata'
 import './styles/index.css'
 
 const wrapper = document.getElementById('container')
-wrapper ? ReactDOM.render(<App />, wrapper) : false
+wrapper ? ReactDOM.render(<Automata />, wrapper) : false

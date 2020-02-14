@@ -1,0 +1,87 @@
+.container{
+	width: 100%;
+	height: 100%;
+	background-color: forestgreen;
+	padding: 20px;
+
+	display: grid;
+	grid-template-columns: 1fr 4fr;
+	grid-template-rows: min-content 1fr min-content;
+	grid-gap: 1vh;
+}
+
+.container > *{
+	background-color: #315297;
+	border-radius: 1vw;
+	color: #dddddd;
+	padding: 20px;
+}
+
+.container.small{
+	grid-template-columns: 1fr 1fr;
+}
+
+/* .container.small > *{
+
+} */
+
+.menuToggler{
+	grid-column: 1/2;
+	width:100%;
+	height:30px;
+	background-color: darkseagreen;
+}
+
+.configToggler{
+	grid-column: 2/3;
+	width:100%;
+	height:30px;
+	background-color: dimgray;
+}
+
+.content{
+	grid-column: 1/-1;
+
+	width: auto;
+	height: 100%;
+	/* background-color: cornflowerblue; */
+
+	display: flex;
+	flex-direction: row;
+
+	/* overflow-x: hidden; */
+}
+
+.menu-container{
+	grid-column: 1/-1;
+}
+
+.config-panel-container{
+	grid-column: 1/2;
+}
+
+.menu-container.small,
+.config-panel-container.small{
+	height: 100%;
+	flex: 1 0 90%;
+}
+
+.sketch-container{
+	grid-column: 2/3;
+	grid-row: 2/3;
+	width: 100%;
+	height: 500px;
+
+	background-color: crimson;
+}
+
+.sketch-container.small{
+	height: 100%;
+	flex: 1 0 100%;
+}
+
+.description{
+	width: 100%;
+	grid-column: 1/-1;
+	grid-row: 3/4;
+}

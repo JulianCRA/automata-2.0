@@ -1,0 +1,65 @@
+:root {
+	--checkbox-height : 1em;
+	--checkbox-border-size: 1px;
+	--checkbox-knob-size: calc(var(--checkbox-height) - var(--checkbox-border-size)*2);
+}
+.input-checkbox-container{
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	position: relative;
+	box-sizing: border-box;
+	line-height: 1;
+	margin-bottom: 1.2em;
+}
+.input-checkbox-container > div{
+	width: 15%;
+	position: relative;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.checkbox-label{
+	width: 85%;
+	cursor: pointer;
+	margin: 0;
+}
+
+.input-checkbox {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	width: 100%;
+	height: var(--checkbox-height);
+	border-radius: calc(var(--checkbox-height) * 0.5);
+	border: var(--checkbox-border-size) solid #ffffff;
+	outline: 0;
+	cursor: pointer;
+	transition: all 0.09s ease-in-out;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.input-checkbox:checked {
+	background-color: #dddddd44;
+}
+
+.input-checkbox::after {
+	content: '';
+	height: var(--checkbox-knob-size);
+	width: var(--checkbox-knob-size);
+	background-color: #ffffff;
+	border-radius: 50%;
+	display: block;
+	box-sizing: border-box;
+	transition: all 0.09s ease-in-out;
+}
+
+.input-checkbox:checked::after {
+	margin-left: calc(100% - var(--checkbox-knob-size));
+	border-radius: 50%;
+}

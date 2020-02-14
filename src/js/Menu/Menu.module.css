@@ -1,0 +1,57 @@
+.automata-menu{
+	width: 100%;
+	min-width: 275px;
+	/* background-color: cadetblue; */
+}
+
+.row{
+	display: flex;
+	list-style: none;
+	flex-direction: row;	
+	justify-content: center;
+}
+
+.column{
+	display: flex;
+	list-style: none;
+	flex-direction: column;
+	align-items: center;
+}
+
+.column > li{
+	width: 70%;
+	flex: 1 1 70%;
+	display: flex;
+}
+
+.column .menu-button{
+	flex: 1;
+}
+
+.menu-button{
+	margin: 5px;
+	border-radius: 10px;
+	background-color: #dddddd1a;
+	color: #ffffff;
+	text-align: center;
+	padding: 12px;
+	font-size: 14px;
+	font-weight: bold;
+	cursor: pointer;
+	border: none;
+}
+
+.menu-button::-moz-focus-inner {
+  border: 0;
+}
+
+.menu-button:hover {
+	box-shadow: 0px 0px 0px 1.5px #eeeeee inset;
+}
+
+.current,
+.menu-button:focus {
+	outline: 0;
+	background-color: #eeeeee;
+	color: #444;
+}
