@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './Range.css';
+import styles from './Range.module.css';
 
 export default class InputRange extends React.Component{
 	constructor(props){
@@ -21,12 +21,12 @@ export default class InputRange extends React.Component{
 
 	render(){
 		return(
-			<div className="slider-container" title = {this.state.ttip}>
-				<label className = "slider-label">
+			<div className={styles.sliderContainer} title = {this.state.ttip}>
+				<label className = {styles.sliderLabel}>
 					{this.state.label + " : " + this.state.showValue}
 				</label>
 				<input 
-					className = "slider"
+					className = {styles.slider}
 					type = "range" 
 					min = {this.state.minimum}
 					max = {this.state.maximum}

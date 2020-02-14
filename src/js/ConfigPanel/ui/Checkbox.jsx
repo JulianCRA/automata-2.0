@@ -1,5 +1,5 @@
 import React from 'react';
-import './Checkbox.css';
+import styles from './Checkbox.module.css';
 
 export default class InputRange extends React.Component{
 	constructor(props){
@@ -16,13 +16,13 @@ export default class InputRange extends React.Component{
 
 	render(){
 		return(
-			<div className = "input-checkbox-container" title = {this.state.ttip} onClick={this.toggleChange}>
-				<label className = "slider-label checkbox-label">
+			<div className = {styles.inputCheckboxContainer} title = {this.state.ttip} onClick={this.toggleChange}>
+				<label className = {styles.checkboxLabel}>
 					{this.state.label}
 				</label>
 				<div>
 					<input 
-						className = "input-checkbox"
+						className = {styles.inputCheckbox}
 						type = "checkbox" 
 						checked = {this.state.isChecked}
 						onChange = {()=>{}}

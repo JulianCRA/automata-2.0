@@ -1,4 +1,4 @@
-:root {
+.slider-container{
 	--slider-height : 1em;
 	--slider-thumb-width: 2em;
 }
@@ -104,6 +104,7 @@
 .slider-container{
 	line-height: 0.8em;
 	margin-bottom: 1.2em;
+	width: 100%;
 }
 
 .slider-label{
