@@ -6,6 +6,7 @@ import cx from 'classnames'
 
 import Menu from './Menu'
 import ConfigPanel from './ConfigPanel'
+import Automaton from './Automaton'
 
 import styles from './Automata.module.css'
 
@@ -68,7 +69,7 @@ const Automata = () => {
 								<Menu small = {smallViewport}/>
 							</div>
 							<div className = {cx(styles.sketchContainer, {[styles.small]: smallViewport } )} >
-
+								<Automaton />
 							</div>
 							<div className = {cx(styles.configPanelContainer, {[styles.small]: smallViewport } ) }>
 								<ConfigPanel />
@@ -82,7 +83,7 @@ const Automata = () => {
 							<Menu small = {smallViewport}/>
 						</div>
 						<div className = {cx(styles.sketchContainer, {[styles.small]: smallViewport } ) }>
-
+							<Automaton />
 						</div>
 						<div className = {cx(styles.configPanelContainer, {[styles.small]: smallViewport } ) }>
 							<ConfigPanel />
