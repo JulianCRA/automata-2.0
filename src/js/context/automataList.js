@@ -21,31 +21,19 @@ const automata = [
 		description: `Interactive representation of the universal Turing machine known as Langton's ant. Click to add a new ant to the canvas.`,
 		automaton: langtonsAnt,
 		config: {
-			width: _WIDTH,
-			height: _HEIGHT
+			size: 30
 		},
 		panel: [
 			{
-				key: 'antswidth',
-				attribute: 'width',
+				key: 'langsize',
+				attribute: 'size',
 				type: 'range',
-				min: 10,
-				max: 200,
-				step: 5,
-				value: _WIDTH,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'antsheight',
-				attribute: 'height',
-				type: 'range',
-				min: 10,
-				max: 200,
-				step: 5,
-				value: _HEIGHT,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
+				min: 2,
+				max: 100,
+				step: 2,
+				value: 30,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
 			}
 		]
 	},
