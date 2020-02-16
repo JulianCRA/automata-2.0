@@ -69,9 +69,9 @@ const automata = [
 				key: 'forestsize',
 				attribute: 'size',
 				type: 'range',
-				min: 5,
+				min: 2,
 				max: 100,
-				step: 5,
+				step: 2,
 				value: 10,
 				label: 'Size',
 				tootltip: 'Size of the cells.'
@@ -128,38 +128,26 @@ const automata = [
 		description: `Tweakable simulation of the Belousov-Zhabotinsky reaction. Most of the variables of the rules proposed by A. K. Dewdney are modifiable in the panel.`,
 		automaton: belousovZhabotinskysReaction,
 		config: {
-			width: 100,
-			height: 100,
 			toroidal: false,
 			distance: 2,
 			states: 32,
 			seed: 4,
 			k1: 4,
 			k2: 1,
-			g: 10
+			g: 10,
+			size: 10
 		},
 		panel: [
 			{
-				key: 'bzwidth',
-				attribute: 'width',
+				key: 'bzsize',
+				attribute: 'size',
 				type: 'range',
-				min: 50,
-				max: 200,
-				step: 10,
-				value: 100,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'bzheight',
-				attribute: 'height',
-				type: 'range',
-				min: 50,
-				max: 200,
-				step: 10,
-				value: 100,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
+				min: 2,
+				max: 100,
+				step: 2,
+				value: 10,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
 			},
 			{
 				key: 'bztoroid',

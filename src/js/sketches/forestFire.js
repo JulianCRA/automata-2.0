@@ -28,7 +28,6 @@ const forestFire = p => {
         canvas = p.createCanvas(p._userNode.clientWidth, p._userNode.clientHeight)
         canvas.mouseClicked(lightningStrike)
         p.noStroke()
-        //p.pixelDensity(1)
 		p.background('forestgreen')
     }
 
