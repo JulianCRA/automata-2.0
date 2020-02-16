@@ -228,8 +228,7 @@ const automata = [
 		description: `A very basic and simple cellular automaton representing a viral replication model. Change any of the possible values on the panel`,
 		automaton: viralReplication,
 		config: {
-			width: 150,
-			height: 150,
+			size: 5,
 			toroidal: false,
 			infectionRate: 55,
 			baseRate: 7,
@@ -238,26 +237,15 @@ const automata = [
 		},
 		panel: [
 			{
-				key: 'viralwidth',
-				attribute: 'width',
+				key: 'viralsize',
+				attribute: 'size',
 				type: 'range',
-				min: 50,
-				max: 200,
-				step: 10,
-				value: 150,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'viralheight',
-				attribute: 'height',
-				type: 'range',
-				min: 50,
-				max: 200,
-				step: 10,
-				value: 150,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
+				min: 1,
+				max: 100,
+				step: 1,
+				value: 5,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
 			},
 			{
 				key: 'viraltoroid',
@@ -302,7 +290,7 @@ const automata = [
 				attribute: 'states',
 				type: 'range',
 				min: 1,
-				max: 254,
+				max: 64,
 				value: 50,
 				label: 'States (q)',
 				tooltip: 'Set the number of states a cell can have.'
