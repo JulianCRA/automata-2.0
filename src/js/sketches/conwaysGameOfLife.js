@@ -18,7 +18,6 @@ const conwaysGameOfLife = p => {
         canvas = p.createCanvas(p._userNode.clientWidth, p._userNode.clientHeight)
 		canvas.mouseClicked(killOrRevive)
         p.frameRate(12)
-        // p.pixelDensity(1)
         p.noStroke()
     }
 
