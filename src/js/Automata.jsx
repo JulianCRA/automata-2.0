@@ -7,6 +7,7 @@ import cx from 'classnames'
 import Menu from './Menu'
 import ConfigPanel from './ConfigPanel'
 import Automaton from './Automaton'
+import Description from './Description'
 
 import styles from './Automata.module.css'
 
@@ -75,20 +76,25 @@ const Automata = () => {
 								<ConfigPanel />
 							</div>
 						</div>
-						<div className = {styles.description}></div>
+						<div className = {styles.description}>
+							<Description small = {smallViewport}/>
+						</div>
 					</div> : 
 
 					<div className = {styles.container}>
 						<div className = {cx(styles.menuContainer, {[styles.small]: smallViewport } ) }>
 							<Menu small = {smallViewport}/>
 						</div>
-						<div className = {cx(styles.sketchContainer, {[styles.small]: smallViewport } ) }>
-							<Automaton />
-						</div>
 						<div className = {cx(styles.configPanelContainer, {[styles.small]: smallViewport } ) }>
 							<ConfigPanel />
 						</div>
-						<div className = {styles.description}></div>
+						<div className = {cx(styles.sketchContainer, {[styles.small]: smallViewport } ) }>
+							<Automaton />
+						</div>
+						
+						<div className = {styles.description}>
+							<Description small = {smallViewport}/>
+						</div>
 					</div>
 			}
 			

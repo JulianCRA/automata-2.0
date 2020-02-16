@@ -13,10 +13,8 @@ const Menu = ({small}) => {
 		{ title: 'Belousov-Zhabotinsky', short: 'belousov' },
 		{ title: 'Viral replication', 	short: 'viralrep' },
 		{ title: 'D-L Aggregation', 	short: 'dlagg' },
-		{ title: 'Flood fill', 			short: 'flood' }
+		{ title: 'Flood fill', 			short: 'flood' },
 	]
-
-	
 
 	return (
 		<div className={styles.automataMenu}>

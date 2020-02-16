@@ -17,7 +17,7 @@ const ConfigPanel = () => {
 			value: value
 		} )
 	}
-
+	console.log("CONFIG PANEL")
 	return (
 		<div className={styles.configPanel}>
 			<ul className={styles.column}>

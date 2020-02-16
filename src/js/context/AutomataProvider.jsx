@@ -4,13 +4,22 @@ import automata from './automataList'
 
 const initialSettings = {
 	automaton: null,
+	description: "",
 	panel: []
 }
 
 const settingsReducer = (settings, action) => {
+	
 	switch(action.type){
 		case 'new-automaton':
-			return automata.find( x => x.short === action.automaton)
+			const automaton = automata.find( x => x.short === action.automaton)
+			return{
+				...settings,
+				panel: automaton.panel,
+				config: automaton.config,
+				description: automaton.description,
+				automaton: automaton.automaton  // Iknow, Iknow....
+			}
 		case 'update-setting':
 			return {
 				...settings,

@@ -7,6 +7,7 @@ import viralReplication from '../sketches/viralReplication'
 import diffusionLimitedAggregation from '../sketches/diffusionLimitedAggregation'
 import floodFill from '../sketches/floodFill'
 
+
 const _WIDTH = 30
 const _HEIGHT = 30
 
@@ -45,63 +46,6 @@ const automata = [
 				value: _HEIGHT,
 				label: 'Rows',
 				tooltip: 'Set the number of rows'
-			}
-		]
-	},
-
-	//		Conway's Life
-
-	{
-		short: 'life',
-		title: 'Conway\'s Game of Life',
-		description: `Representation of the Conway's Game of Life cellular automaton. Click on any cell to change its state. Double click to pause/play the automaton.`,
-		automaton: conwaysGameOfLife,
-		config: {
-			width: _WIDTH,
-			height: _HEIGHT,
-			toroidal: true,
-			seed: 25
-		},
-		panel: [
-			{
-				key: 'conwayswidth',
-				attribute: 'width',
-				type: 'range',
-				min: 20,
-				max: 200,
-				step: 5,
-				value: _WIDTH,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'conwaysheight',
-				attribute: 'height',
-				type: 'range',
-				min: 20,
-				max: 200,
-				step: 5,
-				value: _HEIGHT,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
-			},
-			{
-				key: 'conwaystoroid',
-				attribute: 'toroidal',
-				type: 'checkbox',
-				value: true,
-				label: 'Toroidal',
-				tootltip: 'Choose whether the grid should behave as a plane or as a toroid.'
-			},
-			{
-				key: 'conwaysseed',
-				attribute: 'seed',
-				type: 'range',
-				min: 1,
-				max: 100,
-				value: 25,
-				label: 'Seed cells (%)',
-				tootltip: 'Set the percentage of cells that are "alive" when the algorithm starts'
 			}
 		]
 	},
@@ -532,6 +476,49 @@ const automata = [
 				label: 'Regions',
 				tooltip: 'Set the amount of regions to display.'
 			}
+		]
+	},
+
+	{
+		short: 'life',
+		title: 'Conway\'s Game of Life',
+		description: `Representation of the Conway's Game of Life cellular automaton. Click on any cell to change its state.`,
+		automaton: conwaysGameOfLife,
+		config: {
+			toroidal: true,
+			seed: 25,
+			size: 10
+		},
+		panel: [
+			{
+				key: 'conwayssize',
+				attribute: 'size',
+				type: 'range',
+				min: 5,
+				max: 100,
+				step: 5,
+				value: 10,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
+			},
+			{
+				key: 'conwaystoroid',
+				attribute: 'toroidal',
+				type: 'checkbox',
+				value: true,
+				label: 'Toroidal',
+				tootltip: 'Choose whether the grid should behave as a plane or as a toroid.'
+			},
+			{
+				key: 'conwaysseed',
+				attribute: 'seed',
+				type: 'range',
+				min: 1,
+				max: 100,
+				value: 25,
+				label: 'Seed cells (%)',
+				tootltip: 'Set the percentage of cells that are "alive" when the algorithm starts'
+			}			
 		]
 	},
 ]

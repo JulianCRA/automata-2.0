@@ -1,94 +1,102 @@
-import Grid from './Grid';
+import Grid from './Grid'
 
 const conwaysGameOfLife =( p ) => {
-    const _CANVAS_SIZE = 600;
-
-    let grid;
-    let gridWidth;
-    let gridHeight;
-    let cellWidth;
-	let cellHeight;
+    let grid
+    let gridWidth
+    let gridHeight
+    
+    let size
+    let cellWidth
+	let cellHeight
 	let canvas
 
-    let seed;
-    let toroidal;
+    let seed
+    let toroidal
 
-    let hasStarted;
-
-    p.preload = function(){
-        if(!hasStarted) p.customRedraw();
+    p.preload = () => {}
+    p.setup = () => {
+        canvas = p.createCanvas(p._userNode.clientWidth, p._userNode.clientHeight)
+		canvas.mouseClicked(killOrRevive)
+        p.frameRate(12)
+        p.pixelDensity(1)
+        p.noStroke()
     }
 
-    p.setup = function() {
-		canvas = p.createCanvas(Math.min(p._userNode.clientWidth, p._userNode.clientHeight), Math.min(p._userNode.clientWidth, p._userNode.clientHeight))
-		canvas.mouseClicked(p.killOrRevive)
-        p.frameRate(12);
-        p.pixelDensity(1);
-        p.noStroke();
+    p.windowResized = () => {
+        p.customRedraw({
+            toroidal: toroidal,
+            seed: seed,
+            size: size,
+        })
     }
     
-    p.customRedraw = function(config = {}){
-        hasStarted = true;
+    p.customRedraw = (config = {}) => {
+        seed = config.seed || 10
+        toroidal = config.toroidal && true
+        size = config.size || 50
         
-        gridWidth = config.width || 100;
-        gridHeight = config.height || 100;
-        seed = config.seed || 10;
-        toroidal = config.toroidal && true;
+        const nw = Math.ceil(p._userNode.clientWidth / size)*size
+        const nh = Math.ceil(p._userNode.clientHeight / size)*size
+        
+        p.resizeCanvas(nw, nh, true)
+        
+        cellWidth = size
+        cellHeight = size
+        gridWidth = Math.ceil(p._userNode.clientWidth / size)
+        gridHeight = Math.ceil(p._userNode.clientHeight / size)
 
-		cellWidth = p.width / gridWidth
-        cellHeight = p.height / gridHeight
-        
-        grid = new Grid(gridWidth, gridHeight, 1, 1);
+        grid = new Grid(gridWidth, gridHeight, 1, 1)
         
         if(seed.constructor === Array){
             for(let i = 0; i < seed.length; i++)
-                grid.current[seed[i].x][seed[i].y] = 0;
+                grid.current[seed[i].x][seed[i].y] = 0
         }else{
-            grid.shuffle(seed/100*gridWidth*gridHeight, 0);
+            grid.shuffle( seed / 100 * gridWidth * gridHeight, 0)
         }
     }
 
-    p.draw  = function(){
-        p.clear();
+    p.draw  = () => {
+        p.clear()
         for (let i = 0; i < gridWidth; i++){
             for (let j = 0; j < gridHeight; j++){
-                p.evaluateCell(i, j);
+                evaluateCell(i, j)
                 if(!grid.deadCellIn(i, j)){
-                    p.fill(255 - grid.current[i][j] * 255);
-                    p.rect(i * cellWidth, j * cellHeight, cellWidth, cellHeight, cellWidth*0.4, cellWidth*0.4, cellWidth*0.4, cellWidth*0.4);
+                    p.fill(255 - grid.current[i][j] * 255)
+                    p.rect(i * cellWidth, j * cellHeight, cellWidth, cellHeight, cellWidth*0.4, cellWidth*0.4, cellWidth*0.4, cellWidth*0.4)
                 }
             }
         }
-        grid.iterateAll();
+        grid.iterateAll()
     }
     
-    p.evaluateCell = function(xpos, ypos){
-        let nh = grid.getNeighborhood(xpos, ypos, 1, toroidal); // Moore neighborhood with Tchebychev distance of 1
-        let aliveNeighbors = nh.neighbors.length;
+    const evaluateCell = (xpos, ypos) => {
+        let nh = grid.getNeighborhood(xpos, ypos, 1, toroidal) // Moore neighborhood with Tchebychev distance of 1
+        let aliveNeighbors = nh.neighbors.length
             
         if(grid.current[xpos][ypos] === 0){          // if the cell is alive
             /*if(aliveNeighbors < 2){                 // kill it due to "extinction"
-                grid.next[xpos][ypos] = 1;       
+                grid.next[xpos][ypos] = 1      
             }
             else if(aliveNeighbors >= 2 && aliveNeighbors <= 3){
-                grid.next[xpos][ypos] = 0;
+                grid.next[xpos][ypos] = 0
             }
             else if(aliveNeighbors > 3){            // kill it due to "starvation"
-                grid.next[xpos][ypos] = 1;   
+                grid.next[xpos][ypos] = 1   
             }*/
             if(aliveNeighbors < 2 || aliveNeighbors > 3) grid.next[xpos][ypos] = 1;
         }else{                                      // if the cell is dead
             if(aliveNeighbors === 3){
-                grid.next[xpos][ypos] = 0;       // revive it
+                grid.next[xpos][ypos] = 0       // revive it
             }
         }
         
 	}
 	
-	p.killOrRevive = () => {
-		const v = grid.current[Math.floor(p.mouseX/cellWidth)][Math.floor(p.mouseY/cellHeight)] - 1
-		grid.current[Math.floor(p.mouseX/cellWidth)][Math.floor(p.mouseY/cellHeight)] = Math.abs(v)
-			
+	const killOrRevive = () => {
+        const xpos = Math.floor(p.mouseX/cellWidth)
+        const ypos = Math.floor(p.mouseY/cellHeight)
+		const newValue = Math.abs(grid.current[xpos][ypos] - 1)
+		grid.current[xpos][ypos] = newValue
 	}
 }
 

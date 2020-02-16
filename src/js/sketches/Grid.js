@@ -4,7 +4,7 @@ export default class Grid{
         this.height = gheight;
         this.initialState = state;
         this.death = death;
-        
+        console.log("CONSTRU")
         //this.current = new Array(this.width);
         this.current = [];
         //this.next = new Array(this.width);
