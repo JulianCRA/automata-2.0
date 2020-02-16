@@ -7,10 +7,6 @@ import viralReplication from '../sketches/viralReplication'
 import diffusionLimitedAggregation from '../sketches/diffusionLimitedAggregation'
 import floodFill from '../sketches/floodFill'
 
-
-const _WIDTH = 30
-const _HEIGHT = 30
-
 const automata = [
 
 	//		Langton's ant
@@ -294,35 +290,23 @@ const automata = [
 		description: `2D Cellular automaton depiction the aggregation model defined as DLA. Click to add a seed cell.`,
 		automaton: diffusionLimitedAggregation,
 		config: {
-			width: 150,
-			height: 150,
 			toroidal: false,
 			mobileCellsAmount: 15,
 			seedCellsAmount: 0,
-			states: 50
+			states: 50,
+			size: 5
 		},
 		panel: [
 			{
-				key: 'viralwidth',
-				attribute: 'width',
+				key: 'dlsize',
+				attribute: 'size',
 				type: 'range',
-				min: 50,
-				max: 200,
-				step: 10,
-				value: 150,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'dlheight',
-				attribute: 'height',
-				type: 'range',
-				min: 50,
-				max: 200,
-				step: 10,
-				value: 150,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
+				min: 2,
+				max: 100,
+				step: 1,
+				value: 5,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
 			},
 			{
 				key: 'dltoroid',
@@ -430,6 +414,8 @@ const automata = [
 			}
 		]
 	},
+
+	//		Conway's Game of Life
 
 	{
 		short: 'life',
