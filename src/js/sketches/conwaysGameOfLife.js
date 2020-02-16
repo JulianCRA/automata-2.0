@@ -1,6 +1,6 @@
 import Grid from './Grid'
 
-const conwaysGameOfLife =( p ) => {
+const conwaysGameOfLife = p => {
     let grid
     let gridWidth
     let gridHeight
@@ -18,7 +18,7 @@ const conwaysGameOfLife =( p ) => {
         canvas = p.createCanvas(p._userNode.clientWidth, p._userNode.clientHeight)
 		canvas.mouseClicked(killOrRevive)
         p.frameRate(12)
-        p.pixelDensity(1)
+        // p.pixelDensity(1)
         p.noStroke()
     }
 
@@ -35,8 +35,8 @@ const conwaysGameOfLife =( p ) => {
         toroidal = config.toroidal && true
         size = config.size || 50
         
-        const nw = Math.ceil(p._userNode.clientWidth / size)*size
-        const nh = Math.ceil(p._userNode.clientHeight / size)*size
+        const nw = Math.ceil(p._userNode.clientWidth / size) * size
+        const nh = Math.ceil(p._userNode.clientHeight / size) * size
         
         p.resizeCanvas(nw, nh, true)
         

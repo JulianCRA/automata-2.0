@@ -12,7 +12,7 @@ import Description from './Description'
 import styles from './Automata.module.css'
 
 const Automata = () => {
-	const mql = window.matchMedia('(max-width: 760px)')
+	const mql = window.matchMedia('(max-width: 810px)')
 	const [smallViewport, setSmallViewport] = React.useState(mql.matches)
 	
 	const [position, setPosition] = React.useState(0)

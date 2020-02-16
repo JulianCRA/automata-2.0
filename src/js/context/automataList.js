@@ -58,35 +58,23 @@ const automata = [
 		description: `A slightly modified version of the forest-fire model devised by Drossel and Schwabl. Click to start a fire.`,
 		automaton: forestFire,
 		config: {
-			width: 100,
-			height: 100,
 			toroidal: false,
 			resistance: 40,
 			germination: 5,
-			soilRecovery:  15
+			soilRecovery:  15,
+			size: 10
 		},
 		panel: [
 			{
-				key: 'firewidth',
-				attribute: 'width',
+				key: 'forestsize',
+				attribute: 'size',
 				type: 'range',
-				min: 50,
-				max: 300,
-				step: 10,
-				value: 100,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'fireheight',
-				attribute: 'height',
-				type: 'range',
-				min: 50,
-				max: 300,
-				step: 10,
-				value: 100,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
+				min: 5,
+				max: 100,
+				step: 5,
+				value: 10,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
 			},
 			{
 				key: 'firetoroid',
