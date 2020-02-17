@@ -17,43 +17,41 @@ const ConfigPanel = () => {
 			value: value
 		} )
 	}
-	console.log("CONFIG PANEL")
+	
 	return (
 		<div className={styles.configPanel}>
 			<ul className={styles.column}>
 			{
 				settings.panel.map( 
 					attribute => {
-						if(attribute.type === 'range')
+						if(attribute.type === 'range'){
 							return (
 								<li key = {attribute.key} >
 								<Range 
-									// key = {attribute.key} 
 									attr = {attribute.attribute} 
 									minimum = {attribute.min} 
 									maximum = {attribute.max} 
 									step = {attribute.step}
-									value = {attribute.value} 
+									value = {settings.config[attribute.attribute] || attribute.value} 
 									label = {attribute.label} 
 									ttip = {attribute.tooltip} 
 									cb = {update}
 								/>
 								</li>
 							)
+						}
 						if(attribute.type === 'checkbox')
 							return (
 								<li key = {attribute.key} >
 								<Checkbox 
-									// key = {attribute.key} 
 									attr = {attribute.attribute} 
-									defaultChecked = {attribute.value}
+									defaultChecked = {settings.config[attribute.attribute] || attribute.value} 
 									label = {attribute.label} 
 									ttip = {attribute.tooltip} 
 									cb = {update}
 								/>
 								</li>
 							)
-						
 					}
 				)	
 			}
