@@ -56,6 +56,7 @@
 }
 
 .menu-container{
+	padding: 5px;
 	grid-column: 1/-1;
 }
 

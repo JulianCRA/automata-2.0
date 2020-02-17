@@ -1,4 +1,5 @@
 import React from 'react'
+import cx from 'classnames'
 
 import { automataContext } from '../context/AutomataProvider'
 
@@ -15,7 +16,7 @@ const Menu = ({small}) => {
 		{ title: 'D-L Aggregation', 	short: 'dlagg' },
 		{ title: 'Flood fill', 			short: 'flood' },
 	]
-
+	const [ current, setCurrent ] = React.useState()
 	return (
 		<div className={styles.automataMenu}>
 			<ul className={!small ? styles.row : styles.column}>
@@ -23,12 +24,20 @@ const Menu = ({small}) => {
 					automataShorts.map(({title, short}) => (
 						<li key = {short}>
 							<button 
-								className = {styles.menuButton}
+								className = {cx(
+									styles.menuButton, 
+									{
+										[styles.current]: short === current
+									}
+								)}
 								onClick = {
-									() => updateSettings({
-										type: 'new-automaton', 
-										automaton: short
-									})
+									() => {
+										setCurrent(short)
+										updateSettings({
+											type: 'new-automaton', 
+											automaton: short
+										})
+									}
 								}
 							>
 								{title}

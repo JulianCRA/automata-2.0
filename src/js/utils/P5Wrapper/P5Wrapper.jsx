@@ -3,15 +3,10 @@ import p5 from 'p5'
 
 import './P5Sketch.css'
 
-// if(typeof window !== undefined)
-//   window.p5 = p5
-
 export default class P5Wrapper extends React.Component {
 	componentDidMount() {
 		this.canvas = new p5(this.props.sketch, this.wrapper)
-		console.log("pppppppppppppppppppppppppp");
 		if (this.canvas.customRedraw) {
-			console.log('DUID MOUNT')
 			this.canvas.customRedraw(this.props.config)
 		}
 	}
@@ -23,7 +18,6 @@ export default class P5Wrapper extends React.Component {
 		}
 
 		if (this.canvas.customRedraw) {
-			console.log("DID  UODTATE");
 			this.canvas.customRedraw(this.props.config)
 		}
 	}

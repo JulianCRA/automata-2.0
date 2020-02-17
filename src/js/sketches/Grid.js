@@ -4,10 +4,8 @@ export default class Grid{
         this.height = gheight;
         this.initialState = state;
         this.death = death;
-        console.log("CONSTRU")
-        //this.current = new Array(this.width);
+        
         this.current = [];
-        //this.next = new Array(this.width);
         this.next = [];
         for(let i = 0; i < this.width; i++){
             this.current[i] = new Array(this.height);
@@ -20,7 +18,6 @@ export default class Grid{
     }
 
     shuffle(amount, state, protect = -2){
-        //let cells = new Array();
         let cells = [];
         let randx;
         let randy;
@@ -41,14 +38,11 @@ export default class Grid{
     getNeighborhood(xpos, ypos, radius = 1, toroidal = true, self = false){
         let bound = radius;
         let hasNeighbors = false;
-        //let neighborhood = new Array();
         let neighborhood = [];
-        //let neighbors = new Array();
+        
         let neighbors = [];
         let hasEmptySpaces = false;
-        //let emptySpaces = new Array();
         let emptySpaces = [];
-        //let deadNeighbors = new Array();
         let deadNeighbors = [];
 
         for(let i = -bound; i <= bound; i++){
@@ -140,7 +134,6 @@ export default class Grid{
     }
 
     getCells(state){
-        //let cells = new Array();
         let cells = [];
         for(let i = 0; i < this.width; i++){
             for(let j = 0; j < this.height; j++){

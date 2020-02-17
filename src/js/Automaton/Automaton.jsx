@@ -4,7 +4,7 @@ import P5Wrapper from '../utils/P5Wrapper'
 import { automataContext } from '../context/AutomataProvider'
 const Automaton = () => {
 	const { settings } = useContext( automataContext )
-	console.log("AUTOMATON")
+	
 	return (
 		<React.Fragment>
 			{
