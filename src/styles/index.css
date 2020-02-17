@@ -5,7 +5,11 @@
 }
 
 .container{
-	height: 100vh;
+	/* height: 100vh; */
+	/* height: auto; */
+	min-height: 100vh;
 	display: flex;
+	/* flex-flow: column; */
 	justify-content: center;
+	
 }
