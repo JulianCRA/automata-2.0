@@ -6,7 +6,7 @@
 
 	display: grid;
 	grid-template-columns: 2fr 7fr;
-	grid-template-rows: minmax(6vh, min-content) 1fr minmax(6vh, min-content);
+	grid-template-rows: minmax(6vh, min-content) minmax(300px, 1fr) minmax(6vh, min-content);
 	grid-gap: 1vh;
 }
 
