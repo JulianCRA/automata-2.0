@@ -361,30 +361,20 @@ const automata = [
 			height: 50,
 			seed: false,
 			euclidean: true,
-			regions: 50
+			regions: 50,
+			size: 10
 		},
 		panel: [
 			{
-				key: 'flwidth',
-				attribute: 'width',
+				key: 'flsize',
+				attribute: 'size',
 				type: 'range',
-				min: 10,
-				max: 200,
-				step: 5,
-				value: 50,
-				label: 'Columns',
-				tooltip: 'Set the number of columns'
-			},
-			{
-				key: 'flheight',
-				attribute: 'height',
-				type: 'range',
-				min: 10,
-				max: 200,
-				step: 5,
-				value: 50,
-				label: 'Rows',
-				tooltip: 'Set the number of rows'
+				min: 2,
+				max: 100,
+				step: 2,
+				value: 10,
+				label: 'Size',
+				tootltip: 'Size of the cells.'
 			},
 			{
 				key: 'flseed',
