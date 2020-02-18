@@ -4,7 +4,7 @@ import automata from './automataList'
 
 const initialSettings = {
 	automaton: null,
-	description: "",
+	description: "Choose from a selection of simple automata algorithms.",
 	panel: []
 }
 

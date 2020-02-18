@@ -15,9 +15,6 @@ const Automata = () => {
 	const mql = window.matchMedia('(max-width: 810px)')
 	const [smallViewport, setSmallViewport] = React.useState(mql.matches)
 	
-	const [position, setPosition] = React.useState(0)
-
-	console.log('Render Automata')
 	React.useEffect(
 		() => {
 			mql.onchange = () => setSmallViewport(mql.matches)
@@ -32,9 +29,7 @@ const Automata = () => {
 	)
 
 	const ac = React.useRef()
-	
 	const menuRef = React.useRef()
-
 	
 	let pp = 0
 
@@ -51,6 +46,8 @@ const Automata = () => {
 			l = ac.current.getBoundingClientRect().width + menuRef.current.getBoundingClientRect().width
 		}
 		
+//* TODO: Figure out polyfill for Safari */
+
 		ac.current.scrollTo({
 			left: l,
 			top:0,
@@ -63,8 +60,12 @@ const Automata = () => {
 			{
 				smallViewport ?
 					<div className = {cx(styles.container, {[styles.small]: smallViewport } ) }>
-						<div className = {styles.menuToggler} onClick = {() => moveContentTo(0)}>MENU</div>
-						<div className = {styles.configToggler} onClick = {() => moveContentTo(2)}>CONFIG</div>
+						<div className = {styles.menuToggler} onClick = {() => moveContentTo(0)}>
+							<label>Automata</label>
+						</div>
+						<div className = {styles.configToggler} onClick = {() => moveContentTo(2)}>
+							<label>Config</label>
+						</div>
 						<div className = {styles.content} ref={ac}>
 							<div className = {cx(styles.menuContainer, {[styles.small]: smallViewport } )} ref={menuRef}>
 								<Menu small = {smallViewport}/>

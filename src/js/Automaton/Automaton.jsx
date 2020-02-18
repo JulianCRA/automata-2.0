@@ -11,7 +11,7 @@ const Automaton = () => {
 				settings.automaton ?
 					<P5Wrapper sketch = {settings.automaton} config = {settings.config}></P5Wrapper> : 
 					<div className="p5-sketch">
-						<h1>A selection of simple automata algorithms</h1>
+						
 					</div>
 			}
 		</React.Fragment>
